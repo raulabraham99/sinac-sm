@@ -1,450 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SINAC-SM | Continuidad psicoemocional estructurada</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SINAC-SM</title>
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #f5f7fb;
-      --surface: #ffffff;
-      --primary: #123b63;
-      --primary-2: #1f5f9b;
-      --text: #16202a;
-      --muted: #5f6b76;
-      --line: #dbe3ec;
-      --soft: #edf3f9;
-      --accent: #e9f2fb;
-    }
-
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f9;
+      color: #222;
     }
 
     header {
-      background: linear-gradient(135deg, var(--primary), #0f2f4d);
+      background: #0f3b63;
       color: white;
-      padding: 18px 0;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      padding: 40px 20px;
+      text-align: center;
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+    header h1 {
+      margin: 0;
+      font-size: 32px;
     }
 
-    .brand {
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.4px;
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: 0.9;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
     }
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 0.95rem;
-      opacity: 0.95;
-    }
-
-    .hero {
-      padding: 88px 0 72px;
-      background: linear-gradient(180deg, #eaf2fb 0%, #f5f7fb 100%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.9fr;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--primary);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: 1.1;
-      margin-bottom: 18px;
-      color: var(--primary);
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 700px;
-      margin-bottom: 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    h2 {
+      color: #0f3b63;
     }
 
     .btn {
       display: inline-block;
-      padding: 13px 18px;
-      border-radius: 10px;
+      background: #0f3b63;
+      color: white;
+      padding: 12px 20px;
       text-decoration: none;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-secondary {
-      background: white;
-      color: var(--primary);
-      border: 1px solid var(--line);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .hero-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 26px;
-      box-shadow: 0 16px 40px rgba(18,59,99,0.08);
-    }
-
-    .hero-card h3 {
-      color: var(--primary);
-      margin-bottom: 12px;
-      font-size: 1.15rem;
-    }
-
-    .hero-card ul {
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .hero-card li + li {
-      margin-top: 10px;
-    }
-
-    section {
-      padding: 72px 0;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 14px;
-    }
-
-    .section-text {
-      color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 30px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 8px 20px rgba(16, 35, 54, 0.04);
-    }
-
-    .card h3 {
-      color: var(--primary);
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .highlight {
-      background: var(--soft);
-    }
-
-    .process-step {
-      border-left: 4px solid var(--primary-2);
-      padding-left: 16px;
-    }
-
-    .disclaimer-box {
-      background: #fff7f7;
-      border: 1px solid #f1d3d3;
-      border-radius: 18px;
-      padding: 24px;
-    }
-
-    .disclaimer-box h3 {
-      color: #8c2f2f;
-      margin-bottom: 10px;
-    }
-
-    .disclaimer-box p {
-      color: #6c4a4a;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, var(--primary), #184d7f);
-      color: white;
-      border-radius: 24px;
-      padding: 36px;
-    }
-
-    .cta h2 {
-      margin-bottom: 12px;
-      font-size: 2rem;
-    }
-
-    .cta p {
-      margin-bottom: 20px;
-      max-width: 740px;
-      opacity: 0.95;
+      border-radius: 6px;
+      margin-top: 15px;
     }
 
     footer {
-      padding: 34px 0 50px;
-      color: var(--muted);
-      font-size: 0.95rem;
       text-align: center;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      header {
-        position: static;
-      }
+      padding: 20px;
+      color: #777;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">SINAC-SM</div>
-      <nav class="nav-links">
-        <a href="#problema">Problema</a>
-        <a href="#que-es">Qué es</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#piloto">Piloto</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow">Sistema conceptual en desarrollo</span>
-        <h1>El problema no es solo el acceso a salud mental. Es la continuidad.</h1>
-        <p>
-          SINAC-SM es una propuesta de continuidad psicoemocional estructurada para acompañar,
-          ordenar y hacer visible el período entre sesiones, sin reemplazar la atención clínica
-          ni interferir con el criterio profesional institucional.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contacto">Solicitar conversación inicial</a>
-          <a class="btn btn-secondary" href="#que-es">Conocer el modelo</a>
-        </div>
-      </div>
+<header>
+  <h1>SINAC-SM</h1>
+  <p>El problema no es solo el acceso a salud mental. Es la continuidad.</p>
+</header>
 
-      <aside class="hero-card">
-        <h3>Posicionamiento base</h3>
-        <ul>
-          <li>No es terapia, no es diagnóstico y no sustituye a profesionales de salud mental.</li>
-          <li>Busca apoyar la continuidad, el seguimiento y la organización institucional del proceso.</li>
-          <li>Su implementación debe definirse con gobernanza, protocolos y criterios institucionales.</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
+<section>
+  <h2>El problema</h2>
+  <p>
+    La atención en salud mental presenta fragmentación, discontinuidad entre sesiones
+    y sobrecarga de los equipos clínicos, dificultando el seguimiento adecuado de los usuarios.
+  </p>
+</section>
 
-  <section id="problema">
-    <div class="container">
-      <h2 class="section-title">El problema actual</h2>
-      <p class="section-text">
-        En múltiples contextos institucionales, la atención en salud mental enfrenta fragmentación,
-        discontinuidad del seguimiento, sobrecarga profesional y baja visibilidad del período entre sesiones.
-        Esto dificulta la detección oportuna, el acompañamiento sostenido y la coordinación adecuada de apoyos.
-      </p>
+<section>
+  <h2>Qué es SINAC-SM</h2>
+  <p>
+    SINAC-SM es un sistema de continuidad psicoemocional estructurada que busca complementar
+    el trabajo institucional, apoyando el seguimiento, registro y organización del proceso
+    entre sesiones.
+  </p>
+</section>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>Discontinuidad</h3>
-          <p>Entre una sesión y otra pueden perderse señales relevantes, cambios de estado y factores contextuales importantes para el seguimiento.</p>
-        </div>
-        <div class="card">
-          <h3>Sobrecarga clínica</h3>
-          <p>Los equipos trabajan con alta demanda, tiempos limitados y dificultades para sostener seguimiento longitudinal individualizado.</p>
-        </div>
-        <div class="card">
-          <h3>Fragmentación institucional</h3>
-          <p>La continuidad suele depender más de esfuerzos humanos aislados que de una estructura consistente, trazable y compartida.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<section>
+  <h2>Qué NO es</h2>
+  <p>
+    No es terapia, no realiza diagnósticos y no reemplaza a profesionales de salud mental.
+    Es una herramienta complementaria.
+  </p>
+</section>
 
-  <section id="que-es" class="highlight">
-    <div class="container">
-      <h2 class="section-title">Qué es SINAC-SM</h2>
-      <p class="section-text">
-        SINAC-SM es un sistema conceptual orientado a estructurar la continuidad psicoemocional.
-        Su propósito es complementar la operación institucional mediante registro, seguimiento,
-        observación de patrones y apoyo a flujos de derivación definidos por cada institución.
-      </p>
+<section>
+  <h2>Contacto</h2>
+  <p>
+    contacto@sinac-sm.cl
+  </p>
+  <a class="btn" href="mailto:contacto@sinac-sm.cl">Contactar</a>
+</section>
 
-      <div class="grid-2">
-        <div class="card">
-          <h3>Lo que sí busca hacer</h3>
-          <p>Apoyar continuidad, seguimiento, registro psicoemocional estructurado, visualización de patrones y soporte a procesos definidos por la institución.</p>
-        </div>
-        <div class="card">
-          <h3>Lo que no busca hacer</h3>
-          <p>No entrega atención clínica, no diagnostica, no reemplaza psicólogos ni psiquiatras, y no toma decisiones clínicas por sí mismo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<footer>
+  <p>SINAC-SM · Desarrollo conceptual</p>
+</footer>
 
-  <section id="como-funciona">
-    <div class="container">
-      <h2 class="section-title">Cómo funciona conceptualmente</h2>
-      <p class="section-text">
-        La propuesta considera una lógica modular y progresiva, adaptable a la realidad operativa
-        de cada institución y siempre bajo criterios, exclusiones, protocolos y responsabilidades definidos por ella.
-      </p>
-
-      <div class="grid-2">
-        <div class="card process-step">
-          <h3>1. Registro y check-ins</h3>
-          <p>Espacios breves y estructurados para registrar estado emocional, continuidad subjetiva y señales relevantes entre sesiones.</p>
-        </div>
-        <div class="card process-step">
-          <h3>2. Seguimiento y patrones</h3>
-          <p>Organización de la información para identificar tendencias, persistencias o cambios que puedan requerir revisión profesional.</p>
-        </div>
-        <div class="card process-step">
-          <h3>3. Apoyo a derivación</h3>
-          <p>Soporte a rutas previamente definidas por la institución, sin sustituir criterios clínicos ni protocolos formales de manejo.</p>
-        </div>
-        <div class="card process-step">
-          <h3>4. Gobernanza institucional</h3>
-          <p>La institución define criterios de uso, población objetivo, exclusiones, supervisión, respuesta ante incidentes y componente clínico.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="disclaimer-box">
-        <h3>Límite fundamental del sistema</h3>
-        <p>
-          SINAC-SM debe entenderse como una herramienta complementaria de continuidad y apoyo estructural.
-          No constituye atención de urgencia, intervención clínica ni reemplazo del juicio profesional.
-          Cualquier implementación requiere validación, protocolos claros y responsabilidad institucional explícita.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="piloto" class="highlight">
-    <div class="container">
-      <h2 class="section-title">Propuesta de piloto institucional</h2>
-      <p class="section-text">
-        El piloto está concebido como una etapa acotada, reversible y co-diseñable. Su objetivo es observar factibilidad,
-        ajustar el modelo operativo, generar aprendizaje aplicado y construir evidencia inicial de utilidad institucional.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Reversible</h3>
-          <p>Diseñado para implementarse de forma acotada, con resguardos, evaluación y posibilidad de interrupción según criterios definidos.</p>
-        </div>
-        <div class="card">
-          <h3>Co-diseñable</h3>
-          <p>La institución participa en la definición de protocolos, uso real, flujos de derivación y marco operativo del piloto.</p>
-        </div>
-        <div class="card">
-          <h3>Orientado a evidencia</h3>
-          <p>Busca producir aprendizaje institucional, ajustes del modelo y antecedentes útiles para evaluación posterior.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contacto">
-    <div class="container">
-      <div class="cta">
-        <h2>Abramos una conversación inicial</h2>
-        <p>
-          Si tu institución está explorando formas de fortalecer continuidad, seguimiento y organización del acompañamiento psicoemocional,
-          SINAC-SM puede presentarse en una conversación inicial de carácter conceptual y estratégico.
-        </p>
-        <a class="btn btn-secondary" href="mailto:contacto@sinac-sm.cl">contacto@sinac-sm.cl</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>SINAC-SM · Material conceptual de presentación institucional · Desarrollo inicial</p>
-    </div>
-  </footer>
 </body>
 </html>
