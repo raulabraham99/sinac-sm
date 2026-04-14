@@ -6,31 +6,28 @@
   <title>SINAC-SM | Continuidad psicoemocional estructurada</title>
   <meta
     name="description"
-    content="SINAC-SM es un sistema conceptual de continuidad psicoemocional estructurada, orientado a validación, co-diseño e implementación institucional futura."
+    content="SINAC-SM es un sistema de continuidad psicoemocional estructurada, orientado a fortalecer seguimiento, visibilidad y articulación institucional entre atenciones."
   />
-  <meta name="theme-color" content="#0c1224" />
+  <meta name="theme-color" content="#0b1020" />
 
   <style>
     :root{
       --bg:#08101f;
-      --bg-2:#0d1730;
-      --panel:#101b38;
-      --panel-2:rgba(255,255,255,.06);
-      --panel-3:rgba(255,255,255,.08);
+      --bg-soft:#0f1730;
+      --panel:rgba(255,255,255,.06);
+      --panel-strong:rgba(255,255,255,.09);
       --line:rgba(255,255,255,.12);
-      --line-strong:rgba(255,255,255,.18);
       --text:#eef3ff;
       --muted:#b9c4e3;
-      --muted-2:#92a0c8;
-      --primary:#7f97ff;
-      --primary-2:#9d7fff;
+      --muted-2:#93a4cf;
+      --accent:#7f97ff;
+      --accent-2:#9d7fff;
       --ok:#8fe0be;
       --warn:#ffd78f;
-      --danger:#ffb0b0;
+      --danger:#ffb4b4;
       --max:1200px;
       --radius:24px;
-      --radius-sm:16px;
-      --shadow:0 20px 60px rgba(0,0,0,.26);
+      --shadow:0 20px 60px rgba(0,0,0,.24);
     }
 
     *{
@@ -44,24 +41,24 @@
     }
 
     body{
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 0% 0%, rgba(127,151,255,.18), transparent 26%),
-        radial-gradient(circle at 100% 0%, rgba(157,127,255,.16), transparent 22%),
-        linear-gradient(180deg, #07101e 0%, #08101f 100%);
+        radial-gradient(circle at top left, rgba(127,151,255,.18), transparent 25%),
+        radial-gradient(circle at top right, rgba(157,127,255,.14), transparent 22%),
+        linear-gradient(180deg, #07101d 0%, #08101f 100%);
+      color:var(--text);
       line-height:1.6;
       overflow-x:hidden;
     }
 
     a{
-      text-decoration:none;
       color:inherit;
+      text-decoration:none;
     }
 
     img{
-      display:block;
       max-width:100%;
+      display:block;
     }
 
     .container{
@@ -73,32 +70,18 @@
       padding:88px 0;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(143,224,190,.22);
-      background:rgba(143,224,190,.10);
-      color:var(--ok);
-      font-weight:700;
-      font-size:.92rem;
-      backdrop-filter:blur(14px);
-    }
-
     .section-kicker{
-      color:#9fb3ff;
-      font-weight:800;
-      letter-spacing:.08em;
+      color:#a7b8ff;
       text-transform:uppercase;
-      font-size:.8rem;
+      letter-spacing:.08em;
+      font-weight:800;
+      font-size:.82rem;
       margin-bottom:14px;
     }
 
     .section-title{
-      font-size:clamp(2rem, 4vw, 3.5rem);
-      line-height:1.02;
+      font-size:clamp(2rem, 4vw, 3.4rem);
+      line-height:1.04;
       letter-spacing:-.04em;
       margin-bottom:18px;
       max-width:900px;
@@ -106,8 +89,8 @@
 
     .section-text{
       color:var(--muted);
-      max-width:860px;
-      font-size:1.06rem;
+      font-size:1.05rem;
+      max-width:850px;
     }
 
     .grid-2{
@@ -122,14 +105,8 @@
       gap:22px;
     }
 
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:18px;
-    }
-
     .card{
-      background:var(--panel-2);
+      background:var(--panel);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:28px;
@@ -137,13 +114,8 @@
       height:100%;
     }
 
-    .card.soft{
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-    }
-
     .card h3{
       font-size:1.18rem;
-      line-height:1.2;
       margin-bottom:12px;
       letter-spacing:-.02em;
     }
@@ -152,41 +124,24 @@
       color:var(--muted);
     }
 
-    .icon{
-      width:52px;
-      height:52px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      margin-bottom:18px;
-      font-size:1.2rem;
-      background:linear-gradient(135deg, rgba(127,151,255,.24), rgba(157,127,255,.16));
-      border:1px solid rgba(255,255,255,.12);
-    }
-
     .btn{
-      min-height:54px;
+      min-height:52px;
       padding:0 22px;
       border-radius:16px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      font-weight:800;
-      transition:.24s ease;
       border:1px solid transparent;
+      font-weight:800;
+      transition:.22s ease;
       cursor:pointer;
     }
 
     .btn-primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
       color:#fff;
-      background:linear-gradient(135deg, var(--primary), var(--primary-2));
-      box-shadow:0 16px 38px rgba(127,151,255,.30);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-1px);
-      filter:brightness(1.04);
+      box-shadow:0 16px 36px rgba(127,151,255,.28);
     }
 
     .btn-secondary{
@@ -195,17 +150,17 @@
       color:var(--text);
     }
 
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.08);
+    .btn:hover{
+      transform:translateY(-1px);
     }
 
     .topbar{
       position:sticky;
       top:0;
-      z-index:60;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      background:rgba(7,16,30,.72);
+      z-index:50;
+      background:rgba(7,16,29,.76);
       backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
     .nav{
@@ -228,7 +183,7 @@
       border-radius:14px;
       display:grid;
       place-items:center;
-      background:linear-gradient(135deg, var(--primary), var(--primary-2));
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
       color:#fff;
       font-weight:900;
       box-shadow:var(--shadow);
@@ -236,16 +191,16 @@
 
     .brand-name{
       font-weight:900;
-      letter-spacing:-.02em;
       line-height:1;
+      letter-spacing:-.02em;
     }
 
     .brand-sub{
       display:block;
       color:var(--muted-2);
       font-size:.78rem;
-      font-weight:700;
       margin-top:4px;
+      font-weight:700;
     }
 
     .nav-links{
@@ -258,8 +213,7 @@
     .nav-links a{
       color:var(--muted);
       font-weight:700;
-      font-size:.96rem;
-      transition:.2s ease;
+      font-size:.95rem;
     }
 
     .nav-links a:hover{
@@ -267,19 +221,31 @@
     }
 
     .hero{
-      padding:86px 0 70px;
-      position:relative;
+      padding:88px 0 74px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.12fr .88fr;
+      grid-template-columns:1.08fr .92fr;
       gap:30px;
       align-items:center;
     }
 
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(143,224,190,.22);
+      background:rgba(143,224,190,.10);
+      color:var(--ok);
+      font-weight:700;
+      font-size:.92rem;
+    }
+
     .hero h1{
-      font-size:clamp(2.7rem, 6vw, 5.2rem);
+      font-size:clamp(2.6rem, 6vw, 5rem);
       line-height:.94;
       letter-spacing:-.06em;
       margin:18px 0 18px;
@@ -287,7 +253,7 @@
     }
 
     .hero h1 span{
-      background:linear-gradient(135deg, #ffffff 0%, #bfd1ff 100%);
+      background:linear-gradient(135deg, #ffffff 0%, #c0d1ff 100%);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       background-clip:text;
@@ -295,72 +261,47 @@
 
     .hero p{
       color:var(--muted);
-      font-size:1.1rem;
+      font-size:1.08rem;
       max-width:720px;
     }
 
     .hero-actions{
       display:flex;
-      flex-wrap:wrap;
       gap:14px;
+      flex-wrap:wrap;
       margin-top:28px;
     }
 
-    .hero-proof{
-      display:grid;
-      gap:14px;
-      margin-top:26px;
-    }
-
-    .proof-item{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      padding:14px 16px;
-      border-radius:16px;
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--line);
+    .hero-note{
+      margin-top:24px;
+      padding:20px 22px;
+      border-radius:20px;
+      border:1px solid rgba(255,215,143,.18);
+      background:rgba(255,215,143,.08);
       color:var(--muted);
     }
 
-    .proof-item strong{
-      color:var(--text);
-      display:block;
-      margin-bottom:2px;
+    .hero-note strong{
+      color:var(--warn);
     }
 
     .hero-panel{
-      position:relative;
-      overflow:hidden;
       background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
       border:1px solid var(--line);
-      border-radius:30px;
-      box-shadow:var(--shadow);
+      border-radius:28px;
       padding:24px;
-    }
-
-    .hero-panel::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(127,151,255,.18), transparent 28%),
-        radial-gradient(circle at 90% 0%, rgba(157,127,255,.12), transparent 22%);
-      pointer-events:none;
-    }
-
-    .hero-stack{
-      display:grid;
-      gap:16px;
-      position:relative;
-      z-index:1;
+      box-shadow:var(--shadow);
     }
 
     .mini-card{
+      padding:18px;
+      border-radius:18px;
       background:rgba(255,255,255,.05);
       border:1px solid var(--line);
-      border-radius:20px;
-      padding:18px;
+    }
+
+    .mini-card + .mini-card{
+      margin-top:14px;
     }
 
     .mini-card h4{
@@ -373,546 +314,20 @@
       font-size:.96rem;
     }
 
-    .tag-list{
+    .pill-group{
       display:flex;
-      flex-wrap:wrap;
       gap:10px;
-      margin-top:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
     }
 
-    .tag{
+    .pill-group span{
       padding:9px 12px;
       border-radius:999px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.05);
-      color:var(--text);
       font-size:.9rem;
       font-weight:700;
-    }
-
-    .statement{
-      margin-top:26px;
-      padding:22px;
-      border-radius:22px;
-      border:1px solid rgba(255,215,143,.22);
-      background:linear-gradient(135deg, rgba(255,215,143,.10), rgba(255,255,255,.04));
-    }
-
-    .statement strong{
-      color:var(--warn);
-    }
-
-    .problem-strip{
-      margin-top:28px;
-    }
-
-    .metric-card{
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:24px;
-      height:100%;
-    }
-
-    .metric-card .num{
-      font-size:2rem;
-      line-height:1;
-      font-weight:900;
-      letter-spacing:-.04em;
-      margin-bottom:12px;
-      color:#dce5ff;
-    }
-
-    .metric-card h3{
-      font-size:1.08rem;
-      margin-bottom:10px;
-    }
-
-    .metric-card p{
-      color:var(--muted);
-      font-size:.98rem;
-    }
-
-    .split-panel{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      margin-top:34px;
-      align-items:stretch;
-    }
-
-    .feature-list{
-      display:grid;
-      gap:14px;
-      margin-top:22px;
-    }
-
-    .feature-item{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      padding:14px 16px;
-      border-radius:16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-    }
-
-    .feature-item b{
-      color:var(--text);
-      display:block;
-      margin-bottom:3px;
-    }
-
-    .feature-item p{
-      color:var(--muted);
-      font-size:.97rem;
-    }
-
-    .feature-bullet{
-      flex:0 0 auto;
-      width:28px;
-      height:28px;
-      border-radius:10px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg, var(--primary), var(--primary-2));
-      color:#fff;
-      font-size:.85rem;
-      font-weight:900;
-      margin-top:1px;
-    }
-
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:18px;
-      margin-top:32px;
-    }
-
-    .step{
-      background:var(--panel-2);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:24px;
-      box-shadow:var(--shadow);
-    }
-
-    .step-num{
-      width:40px;
-      height:40px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      color:#fff;
-      font-weight:900;
-      margin-bottom:14px;
-      background:linear-gradient(135deg, var(--primary), var(--primary-2));
-    }
-
-    .step h3{
-      font-size:1.08rem;
-      margin-bottom:10px;
-    }
-
-    .step p{
-      color:var(--muted);
-      font-size:.96rem;
-    }
-
-    .not-grid{
-      display:grid;
-      gap:14px;
-      margin-top:28px;
-    }
-
-    .not-item{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      padding:15px 16px;
-      border-radius:16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-    }
-
-    .not-item .mark{
-      color:var(--danger);
-      font-weight:900;
-      font-size:1rem;
-      margin-top:1px;
-    }
-
-    .not-item div{
-      color:var(--muted);
-    }
-
-    .not-item strong{
-      color:var(--text);
-    }
-
-    .governance-grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:22px;
-      margin-top:32px;
-    }
-
-    .governance-card{
-      padding:28px;
-      border-radius:24px;
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      box-shadow:var(--shadow);
-    }
-
-    .governance-card h3{
-      margin-bottom:14px;
-      font-size:1.14rem;
-    }
-
-    .governance-card ul{
-      list-style:none;
-      display:grid;
-      gap:12px;
-    }
-
-    .governance-card li{
-      color:var(--muted);
-      padding-left:18px;
-      position:relative;
-    }
-
-    .governance-card li::before{
-      content:"•";
-      position:absolute;
-      left:0;
-      color:#aac0ff;
-      font-weight:900;
-    }
-
-    .compare-wrap{
-      margin-top:30px;
-      overflow:auto;
-      border-radius:24px;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-    }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      min-width:760px;
-      background:rgba(255,255,255,.05);
-    }
-
-    th, td{
-      padding:18px 20px;
-      text-align:left;
-      border-bottom:1px solid var(--line);
-      vertical-align:top;
-    }
-
-    th{
-      background:rgba(255,255,255,.06);
-      color:#dfe7ff;
-      font-size:.95rem;
-      font-weight:800;
-    }
-
-    td{
-      color:var(--muted);
-    }
-
-    td strong{
-      color:var(--text);
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:24px;
-      margin-top:34px;
-    }
-
-    .gallery-card{
-      overflow:hidden;
-      border-radius:26px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      box-shadow:var(--shadow);
-    }
-
-    .gallery-card img{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-      background:#0a1223;
-    }
-
-    .gallery-body{
-      padding:22px;
-    }
-
-    .gallery-body h4{
-      font-size:1.08rem;
-      margin-bottom:8px;
-    }
-
-    .gallery-body p{
-      color:var(--muted);
-      font-size:.98rem;
-    }
-        .implementation-grid{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:18px;
-      margin-top:30px;
-    }
-
-    .implementation-step{
-      padding:24px;
-      border-radius:22px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      box-shadow:var(--shadow);
-    }
-
-    .implementation-step .mini{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      margin-bottom:14px;
-      font-weight:900;
-      color:#fff;
-      background:linear-gradient(135deg, var(--primary), var(--primary-2));
-    }
-
-    .implementation-step h3{
-      font-size:1.05rem;
-      margin-bottom:10px;
-    }
-
-    .implementation-step p{
-      color:var(--muted);
-      font-size:.96rem;
-    }
-
-    .contact-panel{
-      display:grid;
-      grid-template-columns:1fr .95fr;
-      gap:24px;
-      margin-top:34px;
-      align-items:stretch;
-    }
-
-    .contact-card{
-      padding:30px;
-      border-radius:28px;
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      box-shadow:var(--shadow);
-      height:100%;
-    }
-
-    .contact-card h3{
-      font-size:1.4rem;
-      margin-bottom:12px;
-      letter-spacing:-.02em;
-    }
-
-    .contact-card p{
-      color:var(--muted);
-    }
-
-    .contact-list{
-      display:grid;
-      gap:14px;
-      margin-top:24px;
-    }
-
-    .contact-item{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      padding:16px 18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-    }
-
-    .contact-item .dot{
-      width:36px;
-      height:36px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg, rgba(127,151,255,.24), rgba(157,127,255,.18));
-      border:1px solid rgba(255,255,255,.12);
-      flex:0 0 auto;
-      font-size:.95rem;
-    }
-
-    .contact-item span{
-      display:block;
-      color:var(--muted-2);
-      font-size:.88rem;
-      margin-bottom:2px;
-    }
-
-    .contact-item strong{
-      color:var(--text);
-      font-size:1rem;
-      word-break:break-word;
-    }
-
-    .contact-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:24px;
-    }
-
-    .contact-form{
-      display:grid;
-      gap:14px;
-      margin-top:6px;
-    }
-
-    .contact-form .fake-input{
-      min-height:58px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      display:flex;
-      align-items:center;
-      padding:0 16px;
-      color:var(--muted);
-    }
-
-    .contact-form .fake-area{
-      min-height:150px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      display:flex;
-      align-items:flex-start;
-      padding:16px;
-      color:var(--muted);
-    }
-
-    .contact-note{
-      margin-top:18px;
-      padding:16px 18px;
-      border-radius:16px;
-      border:1px solid rgba(255,215,143,.22);
-      background:rgba(255,215,143,.08);
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .contact-note strong{
-      color:var(--warn);
-    }
-
-    .footer{
-      padding:46px 0 60px;
-      border-top:1px solid var(--line);
-      margin-top:30px;
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:24px;
-      align-items:flex-start;
-    }
-
-    .footer p{
-      color:var(--muted);
-    }
-
-    .footer strong{
-      color:var(--text);
-    }
-
-    .footer-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      justify-content:flex-end;
-    }
-
-    .footer-links a{
-      color:var(--muted);
-      font-weight:700;
-    }
-
-    .footer-links a:hover{
-      color:var(--text);
-    }
-
-    @media (max-width: 1100px){
-      .hero-grid,
-      .split-panel,
-      .contact-panel,
-      .footer-grid{
-        grid-template-columns:1fr;
-      }
-
-      .grid-3,
-      .governance-grid,
-      .gallery{
-        grid-template-columns:1fr;
-      }
-
-      .grid-4,
-      .steps,
-      .implementation-grid{
-        grid-template-columns:repeat(2, minmax(0,1fr));
-      }
-    }
-
-    @media (max-width: 760px){
-      .nav{
-        flex-direction:column;
-        align-items:flex-start;
-        padding:14px 0;
-      }
-
-      .nav-links{
-        gap:12px;
-      }
-
-      .hero{
-        padding-top:58px;
-      }
-
-      .grid-2,
-      .grid-4,
-      .steps,
-      .implementation-grid{
-        grid-template-columns:1fr;
-      }
-
-      .gallery-card img{
-        height:240px;
-      }
-
-      .footer-links{
-        justify-content:flex-start;
-      }
-
-      .btn{
-        width:100%;
-      }
-
-      .hero-actions,
-      .contact-actions{
-        flex-direction:column;
-      }
     }
   </style>
 </head>
@@ -931,8 +346,8 @@
       <nav class="nav-links">
         <a href="#problema">Problema</a>
         <a href="#propuesta">Propuesta</a>
+        <a href="#mvp">MVP</a>
         <a href="#gobernanza">Gobernanza</a>
-        <a href="#prototipo">Prototipo</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -942,113 +357,88 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Modelo conceptual para validación y co-diseño institucional</div>
+          <div class="eyebrow">Sistema orientado a validación e implementación institucional progresiva</div>
 
           <h1>
-            <span>Sistema de Continuidad Psicoemocional Estructurada</span>
+            <span>Continuidad psicoemocional estructurada entre atenciones</span>
           </h1>
 
           <p>
-            SINAC-SM es un sistema conceptual orientado a fortalecer la continuidad psicoemocional
-            entre atenciones, abordando un vacío frecuente en contextos institucionales:
-            la fragmentación del seguimiento, la baja visibilidad entre contactos y la dificultad
-            para sostener continuidad estructurada sin transformar el sistema en atención clínica directa.
+            SINAC-SM es un sistema orientado a fortalecer seguimiento, visibilidad y articulación institucional
+            entre atenciones, abordando un vacío frecuente en contextos universitarios y organizacionales:
+            la fragmentación del acompañamiento, la baja trazabilidad entre contactos y la dificultad para sostener
+            continuidad sin convertir el sistema en atención clínica directa.
           </p>
 
           <div class="hero-actions">
-            <a href="#propuesta" class="btn btn-primary">Explorar propuesta del sistema</a>
-            <a href="#contacto" class="btn btn-secondary">Panel de contacto</a>
+            <a href="#mvp" class="btn btn-primary">Ver MVP funcional</a>
+            <a href="#propuesta" class="btn btn-secondary">Explorar propuesta</a>
           </div>
 
-          <div class="hero-proof">
-            <div class="proof-item">
-              <div>✓</div>
-              <div>
-                <strong>Enfoque institucional</strong>
-                Diseñado para revisión, validación y eventual implementación futura dentro de marcos definidos por cada institución.
-              </div>
-            </div>
-
-            <div class="proof-item">
-              <div>✓</div>
-              <div>
-                <strong>Límites explícitos</strong>
-                No realiza diagnóstico, no entrega tratamiento y no sustituye profesionales ni dispositivos de urgencia.
-              </div>
-            </div>
-          </div>
-
-          <div class="statement">
-            <p>
-              <strong>Importante:</strong> esta web presenta un <strong>prototipo conceptual</strong>.
-              No corresponde a una implementación clínica activa ni a una plataforma operativa de atención directa.
-            </p>
+          <div class="hero-note">
+            <strong>Importante:</strong> SINAC-SM no realiza diagnóstico, no entrega tratamiento psicológico o psiquiátrico,
+            no reemplaza profesionales y no sustituye dispositivos de urgencia.
           </div>
         </div>
 
         <aside class="hero-panel">
-          <div class="hero-stack">
-            <div class="mini-card">
-              <h4>Propósito del modelo</h4>
-              <p>
-                Estructurar continuidad entre atenciones, hacer visibles señales relevantes y apoyar rutas de seguimiento y derivación institucional.
-              </p>
-            </div>
+          <div class="mini-card">
+            <h4>Propósito del sistema</h4>
+            <p>
+              Estructurar seguimiento entre atenciones, hacer visibles señales relevantes y facilitar continuidad institucional.
+            </p>
+          </div>
 
-            <div class="mini-card">
-              <h4>Aplicación inicial sugerida</h4>
-              <p>
-                Contextos universitarios y entornos institucionales que busquen fortalecer acompañamiento, trazabilidad y continuidad.
-              </p>
-            </div>
+          <div class="mini-card">
+            <h4>Aplicación inicial</h4>
+            <p>
+              Contextos universitarios e instituciones interesadas en fortalecer continuidad y organización del seguimiento.
+            </p>
+          </div>
 
-            <div class="mini-card">
-              <h4>Principios base</h4>
-              <div class="tag-list">
-                <div class="tag">Continuidad</div>
-                <div class="tag">Trazabilidad</div>
-                <div class="tag">Gobernanza</div>
-                <div class="tag">Límites claros</div>
-                <div class="tag">Co-diseño</div>
-              </div>
+          <div class="mini-card">
+            <h4>Principios base</h4>
+            <div class="pill-group">
+              <span>Continuidad</span>
+              <span>Trazabilidad</span>
+              <span>Gobernanza</span>
+              <span>Límites claros</span>
+              <span>Institucional</span>
             </div>
           </div>
         </aside>
       </div>
     </section>
-
-    <section class="section" id="problema">
+        <section class="section" id="problema">
       <div class="container">
         <div class="section-kicker">Problema institucional</div>
         <h2 class="section-title">El problema no es solo el acceso. También es la continuidad.</h2>
         <p class="section-text">
-          En múltiples contextos institucionales, el acompañamiento psicoemocional enfrenta una dificultad recurrente:
-          entre una atención y otra suele perderse visibilidad, continuidad y capacidad de seguimiento estructurado.
-          El resultado no siempre es ausencia de apoyo, sino apoyo fragmentado, reactivo y con baja trazabilidad longitudinal.
+          En muchos contextos institucionales, el acompañamiento psicoemocional no falla únicamente por falta de atención,
+          sino por la pérdida de continuidad entre contactos, la escasa visibilidad longitudinal y la dificultad para sostener
+          seguimiento estructurado entre una atención y otra.
         </p>
 
-        <div class="problem-strip grid-3">
-          <article class="metric-card">
-            <div class="num">01</div>
+        <div class="grid-3" style="margin-top:30px;">
+          <article class="card">
             <h3>Fragmentación del seguimiento</h3>
             <p>
-              La continuidad suele depender de contactos aislados y no de una estructura que permita observar procesos entre atenciones.
+              La continuidad suele depender de contactos aislados y no de una estructura que permita observar proceso,
+              evolución y trayecto entre atenciones.
             </p>
           </article>
 
-          <article class="metric-card">
-            <div class="num">02</div>
+          <article class="card">
             <h3>Baja visibilidad entre contactos</h3>
             <p>
-              Lo que ocurre entre sesiones, controles o espacios de apoyo rara vez queda ordenado de una forma útil para lectura longitudinal.
+              Lo que ocurre entre sesiones o espacios de apoyo rara vez queda organizado de forma útil para lectura longitudinal.
             </p>
           </article>
 
-          <article class="metric-card">
-            <div class="num">03</div>
-            <h3>Derivación frecuentemente reactiva</h3>
+          <article class="card">
+            <h3>Derivación reactiva</h3>
             <p>
-              Muchas rutas de apoyo se activan tarde o con escasa continuidad, especialmente cuando no existe una estructura complementaria de seguimiento.
+              Sin continuidad estructurada, muchas rutas de apoyo se activan tarde o con escasa trazabilidad institucional.
             </p>
           </article>
         </div>
@@ -1057,438 +447,843 @@
 
     <section class="section" id="propuesta">
       <div class="container">
-        <div class="section-kicker">Propuesta conceptual</div>
-        <h2 class="section-title">Qué propone este modelo</h2>
+        <div class="section-kicker">Propuesta del sistema</div>
+        <h2 class="section-title">Qué propone SINAC-SM</h2>
         <p class="section-text">
-          SINAC-SM propone un sistema conceptual de continuidad psicoemocional estructurada,
-          pensado para complementar la atención existente y no para sustituirla.
-          Su foco está en organizar seguimiento, visibilizar información relevante y apoyar continuidad dentro de marcos institucionales definidos.
+          SINAC-SM propone un sistema de continuidad psicoemocional estructurada que complementa la atención existente
+          y organiza seguimiento entre atenciones. Su foco no está en intervenir clínicamente, sino en aportar estructura,
+          continuidad y mejor visibilidad para apoyar marcos institucionales definidos.
         </p>
 
-        <div class="split-panel">
-          <div class="card soft">
-            <h3>Componentes centrales del sistema</h3>
-
-            <div class="feature-list">
-              <div class="feature-item">
-                <div class="feature-bullet">1</div>
-                <div>
-                  <b>Registro y acompañamiento estructurado</b>
-                  <p>Permite organizar trazas de seguimiento entre atenciones sin convertir el sistema en tratamiento directo.</p>
-                </div>
+        <div class="grid-2" style="margin-top:32px;">
+          <section class="card">
+            <h3>Componentes principales</h3>
+            <div style="display:grid; gap:14px; margin-top:18px;">
+              <div>
+                <strong style="color:white;">Registro estructurado</strong>
+                <p>Permite dejar trazas breves de seguimiento entre contactos profesionales.</p>
               </div>
-
-              <div class="feature-item">
-                <div class="feature-bullet">2</div>
-                <div>
-                  <b>Seguimiento longitudinal</b>
-                  <p>Favorece una lectura más continua del proceso del usuario en vez de depender únicamente del momento puntual de consulta.</p>
-                </div>
+              <div>
+                <strong style="color:white;">Continuidad longitudinal</strong>
+                <p>Ordena información para dar mayor visibilidad al proceso entre atenciones.</p>
               </div>
-
-              <div class="feature-item">
-                <div class="feature-bullet">3</div>
-                <div>
-                  <b>Visibilización de señales relevantes</b>
-                  <p>Ayuda a estructurar observación de cambios o patrones para que la institución defina criterios y acciones.</p>
-                </div>
+              <div>
+                <strong style="color:white;">Señales relevantes</strong>
+                <p>Ayuda a identificar patrones simples de seguimiento sin automatizar decisión clínica.</p>
               </div>
-
-              <div class="feature-item">
-                <div class="feature-bullet">4</div>
-                <div>
-                  <b>Apoyo a rutas institucionales</b>
-                  <p>Facilita continuidad, seguimiento y eventual derivación según protocolos definidos por la propia institución.</p>
-                </div>
+              <div>
+                <strong style="color:white;">Apoyo institucional</strong>
+                <p>Facilita continuidad y articulación según criterios definidos por la propia institución.</p>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div class="card soft">
-            <h3>Cómo funcionaría su lógica general</h3>
-
-            <div class="feature-list">
-              <div class="feature-item">
-                <div class="feature-bullet">A</div>
-                <div>
-                  <b>Captura</b>
-                  <p>El usuario registra información breve, guiada y acotada durante el periodo entre atenciones.</p>
-                </div>
+          <section class="card">
+            <h3>Lógica general</h3>
+            <div style="display:grid; gap:14px; margin-top:18px;">
+              <div>
+                <strong style="color:white;">1. Registro</strong>
+                <p>El usuario deja información breve entre atenciones.</p>
               </div>
-
-              <div class="feature-item">
-                <div class="feature-bullet">B</div>
-                <div>
-                  <b>Organización</b>
-                  <p>El sistema estructura esa información para lectura longitudinal, continuidad y mejor visibilidad institucional.</p>
-                </div>
+              <div>
+                <strong style="color:white;">2. Organización</strong>
+                <p>El sistema ordena esa información para seguimiento y lectura longitudinal.</p>
               </div>
-
-              <div class="feature-item">
-                <div class="feature-bullet">C</div>
-                <div>
-                  <b>Interpretación institucional</b>
-                  <p>La institución define qué significa cada señal, cómo se supervisa y cuándo corresponde activar sus protocolos.</p>
-                </div>
+              <div>
+                <strong style="color:white;">3. Visibilidad</strong>
+                <p>Se presentan señales o patrones básicos para apoyar continuidad.</p>
               </div>
-
-              <div class="feature-item">
-                <div class="feature-bullet">D</div>
-                <div>
-                  <b>Continuidad y derivación</b>
-                  <p>Las acciones operativas y clínicas permanecen bajo responsabilidad de la institución y sus equipos profesionales.</p>
-                </div>
+              <div>
+                <strong style="color:white;">4. Articulación</strong>
+                <p>La institución define criterios, responsables y rutas de uso.</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="steps">
-          <article class="step">
-            <div class="step-num">1</div>
-            <h3>Registro</h3>
-            <p>Ingreso de seguimiento breve, ordenado y orientado a continuidad entre atenciones.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-num">2</div>
-            <h3>Estructuración</h3>
-            <p>Organización de información para lectura longitudinal y mejor visibilidad del proceso.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-num">3</div>
-            <h3>Visibilización</h3>
-            <p>Presentación de señales relevantes sin sustituir evaluación ni criterio clínico profesional.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-num">4</div>
-            <h3>Articulación institucional</h3>
-            <p>Activación de continuidad, supervisión o derivación bajo reglas definidas por la institución.</p>
-          </article>
+          </section>
         </div>
       </div>
     </section>
 
-    <section class="section" id="no-es">
+    <section class="section" id="limites">
       <div class="container">
         <div class="section-kicker">Límites del modelo</div>
         <h2 class="section-title">Lo que este sistema no es</h2>
         <p class="section-text">
-          Esta delimitación es parte esencial del proyecto. Permite entender su alcance real,
-          reducir interpretaciones incorrectas y separar claramente el sistema de la atención clínica directa.
+          Esta delimitación es esencial para mantener claridad estratégica, ética e institucional.
         </p>
 
-        <div class="not-grid">
-          <div class="not-item">
-            <div class="mark">✕</div>
-            <div><strong>No realiza diagnóstico clínico.</strong> No clasifica ni determina condiciones de salud mental.</div>
+        <div style="display:grid; gap:14px; margin-top:28px;">
+          <div class="card" style="padding:18px 22px;">
+            <strong style="color:white;">No realiza diagnóstico clínico.</strong>
           </div>
-
-          <div class="not-item">
-            <div class="mark">✕</div>
-            <div><strong>No entrega tratamiento psicológico o psiquiátrico.</strong> No reemplaza procesos terapéuticos ni farmacológicos.</div>
+          <div class="card" style="padding:18px 22px;">
+            <strong style="color:white;">No entrega tratamiento psicológico o psiquiátrico.</strong>
           </div>
-
-          <div class="not-item">
-            <div class="mark">✕</div>
-            <div><strong>No sustituye la atención profesional.</strong> La evaluación, decisión e intervención permanecen en manos de equipos humanos.</div>
+          <div class="card" style="padding:18px 22px;">
+            <strong style="color:white;">No reemplaza atención profesional.</strong>
           </div>
-
-          <div class="not-item">
-            <div class="mark">✕</div>
-            <div><strong>No reemplaza dispositivos de urgencia.</strong> No constituye canal de emergencia ni respuesta inmediata.</div>
-          </div>
-
-          <div class="not-item">
-            <div class="mark">✕</div>
-            <div><strong>No corresponde a una implementación activa en esta etapa.</strong> Esta web presenta un prototipo conceptual para validación y conversación institucional.</div>
+          <div class="card" style="padding:18px 22px;">
+            <strong style="color:white;">No sustituye dispositivos de urgencia ni canales de emergencia.</strong>
           </div>
         </div>
       </div>
     </section>
+        <section class="section" id="mvp">
+      <div class="container">
+        <div class="section-kicker">MVP inicial funcional</div>
+        <h2 class="section-title">Una sola web con núcleo operativo básico integrado</h2>
+        <p class="section-text">
+          Esta versión inicial incorpora funcionalidad básica dentro de la misma página: registro de seguimiento,
+          historial reciente y una lectura institucional simple. Todo permanece dentro del mismo sitio, sin abrir páginas separadas.
+        </p>
 
-    <section class="section" id="gobernanza">
+        <div class="mvp-shell">
+          <div class="mvp-nav">
+            <button class="mvp-tab active" data-panel="mvp-panel-inicio">Inicio del sistema</button>
+            <button class="mvp-tab" data-panel="mvp-panel-registro">Registro y continuidad</button>
+            <button class="mvp-tab" data-panel="mvp-panel-institucional">Vista institucional</button>
+            <button class="mvp-tab" data-panel="mvp-panel-contacto">Contacto</button>
+          </div>
+
+          <section class="mvp-panel active" id="mvp-panel-inicio">
+            <div class="card">
+              <h3>Qué muestra este MVP</h3>
+              <p style="margin-bottom:16px;">
+                Este MVP inicial ya permite visualizar cómo podría operar el sistema en su lógica base:
+                un usuario deja registros breves entre atenciones y la institución obtiene una lectura
+                estructurada del seguimiento acumulado.
+              </p>
+              <div class="pill-group">
+                <span>Registro</span>
+                <span>Historial</span>
+                <span>Resumen</span>
+                <span>Vista institucional</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="mvp-panel" id="mvp-panel-registro">
+            <div class="grid-3" style="margin-bottom:24px;">
+              <article class="card">
+                <h3>Registros acumulados</h3>
+                <p id="mvpTotal" class="mvp-metric">0</p>
+              </article>
+
+              <article class="card">
+                <h3>Último estado</h3>
+                <p id="mvpUltimoEstado" class="mvp-metric-small">Sin registros</p>
+              </article>
+
+              <article class="card">
+                <h3>Tendencia reciente</h3>
+                <p id="mvpTendencia" class="mvp-metric-small">Sin información</p>
+              </article>
+            </div>
+
+            <div class="grid-2">
+              <section class="card">
+                <h3>Nuevo registro</h3>
+                <p class="mvp-muted">Registro breve de continuidad entre atenciones.</p>
+
+                <div class="mvp-form">
+                  <div class="mvp-field">
+                    <label for="mvpEstado">¿Cómo te sentiste hoy?</label>
+                    <select id="mvpEstado">
+                      <option value="">Selecciona una opción</option>
+                      <option value="Estable">Estable</option>
+                      <option value="Con altibajos">Con altibajos</option>
+                      <option value="Sobrecargado/a">Sobrecargado/a</option>
+                    </select>
+                  </div>
+
+                  <div class="mvp-field">
+                    <label for="mvpEnergia">Nivel de energía</label>
+                    <select id="mvpEnergia">
+                      <option value="">Selecciona una opción</option>
+                      <option value="Alta">Alta</option>
+                      <option value="Media">Media</option>
+                      <option value="Baja">Baja</option>
+                    </select>
+                  </div>
+
+                  <div class="mvp-field mvp-full">
+                    <label for="mvpNota">Comentario breve</label>
+                    <textarea id="mvpNota" rows="4" placeholder="Escribe una observación breve..."></textarea>
+                  </div>
+
+                  <div class="mvp-field mvp-full">
+                    <label for="mvpApoyo">¿Qué te ayudaría esta semana?</label>
+                    <select id="mvpApoyo">
+                      <option value="">Selecciona una opción</option>
+                      <option value="Mantener seguimiento">Mantener seguimiento</option>
+                      <option value="Mayor organización">Mayor organización</option>
+                      <option value="Orientación para continuidad">Orientación para continuidad</option>
+                    </select>
+                  </div>
+
+                  <div class="mvp-full mvp-actions-row">
+                    <button class="btn btn-primary" type="button" onclick="mvpGuardarRegistro()">Guardar registro</button>
+                    <button class="btn btn-secondary" type="button" onclick="mvpCargarEjemplo()">Cargar ejemplo</button>
+                    <button class="btn btn-secondary" type="button" onclick="mvpLimpiar()">Limpiar</button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="card">
+                <h3>Historial de continuidad</h3>
+                <div id="mvpTimeline" class="mvp-timeline">
+                  <div class="mvp-empty">Aún no hay registros. Puedes crear uno o cargar un ejemplo.</div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section class="mvp-panel" id="mvp-panel-institucional">
+            <div class="grid-3" style="margin-bottom:24px;">
+              <article class="card">
+                <h3>Señal predominante</h3>
+                <p id="mvpSenal" class="mvp-metric-small">Sin datos</p>
+              </article>
+
+              <article class="card">
+                <h3>Energía predominante</h3>
+                <p id="mvpEnergiaTop" class="mvp-metric-small">Sin datos</p>
+              </article>
+
+              <article class="card">
+                <h3>Apoyo más referido</h3>
+                <p id="mvpApoyoTop" class="mvp-metric-small">Sin datos</p>
+              </article>
+            </div>
+
+            <div class="grid-2">
+              <section class="card">
+                <h3>Resumen estructurado</h3>
+                <div id="mvpResumen" class="mvp-summary">
+                  No hay información suficiente para mostrar un resumen.
+                </div>
+              </section>
+
+              <section class="card">
+                <h3>Visualización simple</h3>
+                <div id="mvpBars" class="mvp-bars">
+                  <div class="mvp-empty">Aún no hay datos para visualizar.</div>
+                </div>
+              </section>
+            </div>
+
+            <section class="card" style="margin-top:24px;">
+              <h3>Tabla de continuidad</h3>
+              <div class="mvp-table-wrap">
+                <table class="mvp-table">
+                  <thead>
+                    <tr>
+                      <th>Fecha</th>
+                      <th>Estado</th>
+                      <th>Energía</th>
+                      <th>Apoyo</th>
+                      <th>Comentario</th>
+                    </tr>
+                  </thead>
+                  <tbody id="mvpTableBody">
+                    <tr>
+                      <td colspan="5" class="mvp-table-empty">No hay registros aún.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+
+          <section class="mvp-panel" id="mvp-panel-contacto">
+            <div class="grid-2">
+              <section class="card">
+                <h3>Contacto institucional</h3>
+                <p class="mvp-muted">
+                  Este espacio está pensado para canalizar reuniones exploratorias, validación y conversaciones iniciales sobre pilotaje.
+                </p>
+
+                <div class="mvp-contact-list">
+                  <div class="mvp-contact-item">
+                    <strong>Correo</strong>
+                    <span>contacto@sinac-sm.cl</span>
+                  </div>
+                  <div class="mvp-contact-item">
+                    <strong>Sitio</strong>
+                    <span>www.sinac-sm.cl</span>
+                  </div>
+                  <div class="mvp-contact-item">
+                    <strong>Enfoque inicial</strong>
+                    <span>Universidades e instituciones interesadas en continuidad estructurada</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="card" id="contacto">
+                <h3>Solicitud inicial</h3>
+                <div class="mvp-form">
+                  <div class="mvp-field">
+                    <label>Institución</label>
+                    <input type="text" placeholder="Nombre de la institución" />
+                  </div>
+
+                  <div class="mvp-field">
+                    <label>Correo</label>
+                    <input type="email" placeholder="correo@institucion.cl" />
+                  </div>
+
+                  <div class="mvp-field mvp-full">
+                    <label>Mensaje</label>
+                    <textarea rows="5" placeholder="Interés institucional o solicitud inicial"></textarea>
+                  </div>
+
+                  <div class="mvp-full">
+                    <button class="btn btn-primary" type="button">Enviar solicitud</button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .mvp-shell{
+        margin-top:32px;
+        background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+        border:1px solid var(--line);
+        border-radius:28px;
+        padding:24px;
+        box-shadow:var(--shadow);
+      }
+
+      .mvp-nav{
+        display:flex;
+        gap:12px;
+        flex-wrap:wrap;
+        margin-bottom:24px;
+      }
+
+      .mvp-tab{
+        padding:12px 16px;
+        border-radius:14px;
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.05);
+        color:var(--text);
+        font-weight:700;
+        cursor:pointer;
+      }
+
+      .mvp-tab.active{
+        background:linear-gradient(135deg, var(--accent), var(--accent-2));
+        color:#fff;
+      }
+
+      .mvp-panel{
+        display:none;
+      }
+
+      .mvp-panel.active{
+        display:block;
+      }
+
+      .mvp-metric{
+        font-size:2rem;
+        color:#fff;
+        font-weight:800;
+        margin-top:8px;
+      }
+
+      .mvp-metric-small{
+        font-size:1.25rem;
+        color:#fff;
+        font-weight:800;
+        margin-top:8px;
+      }
+
+      .mvp-muted{
+        color:var(--muted);
+        margin-bottom:18px;
+      }
+
+      .mvp-form{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:16px;
+      }
+
+      .mvp-field{
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+      }
+
+      .mvp-field label{
+        font-weight:700;
+        color:var(--text);
+      }
+
+      .mvp-field select,
+      .mvp-field textarea,
+      .mvp-field input{
+        width:100%;
+        border-radius:16px;
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.05);
+        color:var(--text);
+        padding:14px;
+        font:inherit;
+      }
+
+      .mvp-field option{
+        color:#111827;
+      }
+
+      .mvp-full{
+        grid-column:1 / -1;
+      }
+
+      .mvp-actions-row{
+        display:flex;
+        gap:12px;
+        flex-wrap:wrap;
+      }
+
+      .mvp-timeline{
+        display:grid;
+        gap:14px;
+      }
+
+      .mvp-item{
+        border:1px solid var(--line);
+        border-radius:18px;
+        background:rgba(255,255,255,.04);
+        padding:16px;
+      }
+
+      .mvp-item-top{
+        display:flex;
+        justify-content:space-between;
+        gap:12px;
+        flex-wrap:wrap;
+        margin-bottom:8px;
+      }
+
+      .mvp-item-title{
+        font-weight:800;
+        color:#fff;
+      }
+
+      .mvp-item-date{
+        color:var(--muted);
+        font-size:.9rem;
+      }
+
+      .mvp-item-meta{
+        display:flex;
+        gap:8px;
+        flex-wrap:wrap;
+        margin-bottom:10px;
+      }
+
+      .mvp-chip{
+        padding:7px 10px;
+        border-radius:999px;
+        background:rgba(255,255,255,.06);
+        border:1px solid var(--line);
+        font-size:.84rem;
+        font-weight:700;
+      }
+
+      .mvp-empty{
+        padding:18px;
+        border-radius:16px;
+        border:1px dashed var(--line);
+        color:var(--muted);
+      }
+
+      .mvp-summary{
+        padding:18px;
+        border-radius:18px;
+        background:rgba(255,255,255,.04);
+        border:1px solid var(--line);
+        color:var(--muted);
+        line-height:1.7;
+      }
+
+      .mvp-bars{
+        display:grid;
+        gap:14px;
+      }
+
+      .mvp-bar-row{
+        display:grid;
+        gap:8px;
+      }
+
+      .mvp-bar-label{
+        display:flex;
+        justify-content:space-between;
+        color:#fff;
+        font-weight:700;
+      }
+
+      .mvp-bar-track{
+        width:100%;
+        height:14px;
+        border-radius:999px;
+        background:rgba(255,255,255,.06);
+        overflow:hidden;
+      }
+
+      .mvp-bar-fill{
+        height:100%;
+        border-radius:999px;
+        background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      }
+
+      .mvp-table-wrap{
+        overflow:auto;
+      }
+
+      .mvp-table{
+        width:100%;
+        border-collapse:collapse;
+        min-width:700px;
+      }
+
+      .mvp-table th,
+      .mvp-table td{
+        padding:14px 12px;
+        text-align:left;
+        border-bottom:1px solid var(--line);
+      }
+
+      .mvp-table th{
+        color:#fff;
+      }
+
+      .mvp-table td{
+        color:var(--muted);
+      }
+
+      .mvp-table-empty{
+        text-align:center;
+        color:var(--muted);
+      }
+
+      .mvp-contact-list{
+        display:grid;
+        gap:12px;
+        margin-top:18px;
+      }
+
+      .mvp-contact-item{
+        padding:14px 16px;
+        border-radius:16px;
+        background:rgba(255,255,255,.04);
+        border:1px solid var(--line);
+      }
+
+      .mvp-contact-item strong{
+        display:block;
+        color:#fff;
+        margin-bottom:4px;
+      }
+
+      .mvp-contact-item span{
+        color:var(--muted);
+      }
+    </style>
+        <section class="section" id="gobernanza">
       <div class="container">
         <div class="section-kicker">Gobernanza y responsabilidades</div>
-        <h2 class="section-title">Una propuesta con roles claramente diferenciados</h2>
+        <h2 class="section-title">Un sistema con roles claramente diferenciados</h2>
         <p class="section-text">
-          El valor del modelo depende de una separación nítida entre lo que hace el sistema,
+          El valor de SINAC-SM depende de una separación clara entre lo que hace el sistema,
           lo que define la institución y lo que sigue siendo responsabilidad de profesionales.
-          Esto permite una lectura mucho más segura, realista y gobernable del proyecto.
         </p>
 
-        <div class="governance-grid">
-          <article class="governance-card">
+        <div class="grid-3" style="margin-top:30px;">
+          <article class="card">
             <h3>Sistema</h3>
-            <ul>
-              <li>Estructura seguimiento entre atenciones.</li>
-              <li>Organiza información para continuidad longitudinal.</li>
-              <li>Visibiliza señales relevantes de forma no clínica.</li>
-              <li>Apoya rutas institucionales de seguimiento o derivación.</li>
-            </ul>
+            <p>
+              Estructura seguimiento, organiza información, visibiliza señales simples y facilita continuidad no clínica.
+            </p>
           </article>
 
-          <article class="governance-card">
+          <article class="card">
             <h3>Institución</h3>
-            <ul>
-              <li>Define alcances, protocolos y criterios de uso.</li>
-              <li>Determina responsables, supervisión y gobernanza.</li>
-              <li>Establece rutas de exclusión, continuidad y derivación.</li>
-              <li>Decide cómo integrar el modelo a su realidad operativa.</li>
-            </ul>
+            <p>
+              Define alcances, criterios, protocolos, responsables, supervisión y rutas de uso.
+            </p>
           </article>
 
-          <article class="governance-card">
+          <article class="card">
             <h3>Profesionales</h3>
-            <ul>
-              <li>Mantienen criterio clínico y juicio profesional.</li>
-              <li>Evalúan, interpretan y toman decisiones de intervención.</li>
-              <li>Definen prioridades de atención según su marco institucional.</li>
-              <li>No son reemplazados por el sistema.</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="compare-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Dimensión</th>
-                <th>Atención clínica directa</th>
-                <th>SINAC-SM</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Función principal</strong></td>
-                <td>Evaluar, intervenir, tratar y acompañar clínicamente.</td>
-                <td>Estructurar continuidad, seguimiento y visibilidad entre atenciones.</td>
-              </tr>
-              <tr>
-                <td><strong>Responsabilidad</strong></td>
-                <td>Equipos profesionales e institución.</td>
-                <td>Apoyo estructural no clínico bajo gobernanza institucional.</td>
-              </tr>
-              <tr>
-                <td><strong>Decisión clínica</strong></td>
-                <td>Forma parte central del trabajo profesional.</td>
-                <td>No corresponde al sistema.</td>
-              </tr>
-              <tr>
-                <td><strong>Urgencia</strong></td>
-                <td>Puede activar protocolos y dispositivos especializados.</td>
-                <td>No reemplaza urgencias ni canales de emergencia.</td>
-              </tr>
-              <tr>
-                <td><strong>Valor diferencial</strong></td>
-                <td>Intervención profesional directa.</td>
-                <td>Continuidad estructurada donde hoy suele haber fragmentación.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="prototipo">
-      <div class="container">
-        <div class="section-kicker">Prototipo conceptual</div>
-        <h2 class="section-title">Vistas referenciales del modelo</h2>
-        <p class="section-text">
-          Estas imágenes tienen por objetivo ilustrar la lógica general del sistema,
-          no representar una plataforma clínica ya implementada.
-          Cambia los nombres de archivo por los de tus imágenes reales dentro de la carpeta <strong>img</strong>.
-        </p>
-
-        <div class="gallery">
-          <article class="gallery-card">
-            <img src="img/hero-app.jpg" alt="Vista inicial conceptual del sistema SINAC-SM" />
-            <div class="gallery-body">
-              <h4>Vista de entrada y delimitación del modelo</h4>
-              <p>
-                Presentación inicial del sistema, su propósito general y sus límites estratégicos.
-              </p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/seguimiento.jpg" alt="Vista conceptual de seguimiento entre atenciones" />
-            <div class="gallery-body">
-              <h4>Vista de continuidad entre atenciones</h4>
-              <p>
-                Ejemplo de cómo podría organizarse el seguimiento psicoemocional entre contactos profesionales.
-              </p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/riesgo.jpg" alt="Vista conceptual de señales relevantes y lectura longitudinal" />
-            <div class="gallery-body">
-              <h4>Vista de organización longitudinal</h4>
-              <p>
-                Representación conceptual de información estructurada para apoyar lectura más continua del proceso.
-              </p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <img src="img/derivacion.jpg" alt="Vista conceptual de apoyo a rutas institucionales" />
-            <div class="gallery-body">
-              <h4>Vista de apoyo a rutas institucionales</h4>
-              <p>
-                Ejemplo de cómo el sistema podría aportar continuidad y articulación según criterios institucionales.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="implementacion">
-      <div class="container">
-        <div class="section-kicker">Implementación futura</div>
-        <h2 class="section-title">Ruta sugerida para una implementación institucional futura</h2>
-        <p class="section-text">
-          La propuesta no supone despliegue inmediato. Su maduración requiere revisión institucional,
-          definición de gobernanza y un proceso de ajuste progresivo antes de cualquier pilotaje formal.
-        </p>
-
-        <div class="implementation-grid">
-          <article class="implementation-step">
-            <div class="mini">1</div>
-            <h3>Revisión del modelo conceptual</h3>
-            <p>Evaluación inicial del enfoque, su pertinencia y sus límites dentro del contexto institucional.</p>
-          </article>
-
-          <article class="implementation-step">
-            <div class="mini">2</div>
-            <h3>Definición de alcances y gobernanza</h3>
-            <p>Determinación de criterios, responsables, exclusiones, protocolos y supervisión.</p>
-          </article>
-
-          <article class="implementation-step">
-            <div class="mini">3</div>
-            <h3>Ajuste de flujos y componentes</h3>
-            <p>Adaptación del sistema a la realidad operativa de la institución y su población objetivo.</p>
-          </article>
-
-          <article class="implementation-step">
-            <div class="mini">4</div>
-            <h3>Piloto acotado y reversible</h3>
-            <p>Implementación limitada, evaluable y ajustable, con revisión institucional permanente.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contacto">
-      <div class="container">
-        <div class="section-kicker">Contacto</div>
-        <h2 class="section-title">Panel de contacto y conversación institucional</h2>
-        <p class="section-text">
-          Este espacio está pensado para presentar el proyecto, abrir conversación con instituciones interesadas
-          y canalizar reuniones exploratorias en torno al modelo, su pertinencia y sus posibilidades de co-diseño.
-        </p>
-
-        <div class="contact-panel">
-          <div class="contact-card">
-            <h3>Contacto institucional</h3>
             <p>
-              Puedes personalizar este bloque con tus datos reales, correo principal,
-              sitio complementario o enlaces de presentación del proyecto.
+              Mantienen criterio clínico, evaluación, decisión e intervención. No son reemplazados por el sistema.
             </p>
-
-            <div class="contact-list">
-              <div class="contact-item">
-                <div class="dot">✉</div>
-                <div>
-                  <span>Correo</span>
-                  <strong>contacto@sinac-sm.cl</strong>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="dot">🌐</div>
-                <div>
-                  <span>Sitio</span>
-                  <strong>www.sinac-sm.cl</strong>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="dot">🏛</div>
-                <div>
-                  <span>Enfoque inicial</span>
-                  <strong>Universidades e instituciones interesadas en continuidad psicoemocional estructurada</strong>
-                </div>
-              </div>
-            </div>
-
-            <div class="contact-actions">
-              <a href="mailto:contacto@sinac-sm.cl" class="btn btn-primary">Escribir correo</a>
-              <a href="#inicio" class="btn btn-secondary">Volver al inicio</a>
-            </div>
-          </div>
-
-          <div class="contact-card">
-            <h3>Formulario de referencia visual</h3>
-            <p>
-              Este bloque sirve para que la web se vea completa y profesional.
-              Si después quieres, lo transformamos en un formulario real con Formspree o EmailJS.
-            </p>
-
-            <div class="contact-form">
-              <div class="fake-input">Nombre de la institución</div>
-              <div class="fake-input">Correo de contacto</div>
-              <div class="fake-input">Cargo o área</div>
-              <div class="fake-area">Mensaje o interés institucional</div>
-            </div>
-
-            <div class="contact-note">
-              <strong>Nota:</strong> este sitio presenta un modelo conceptual.
-              Cualquier conversación sobre implementación debe entenderse como revisión exploratoria y no como despliegue clínico inmediato.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="card soft" style="text-align:center;">
-          <div class="section-kicker">Cierre</div>
-          <h2 class="section-title" style="margin-inline:auto; max-width:900px;">
-            Continuidad estructurada donde hoy suele haber fragmentación.
-          </h2>
-          <p class="section-text" style="margin:0 auto;">
-            Un modelo conceptual para fortalecer seguimiento, visibilidad y articulación institucional entre atenciones,
-            con límites claros, gobernanza definida y responsabilidades bien diferenciadas.
-          </p>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <p><strong>SINAC-SM</strong> · Sistema de continuidad psicoemocional estructurada.</p>
-        <p style="margin-top:8px;">
-          Material de carácter conceptual, exploratorio y estratégico para validación institucional.
-          No constituye implementación clínica activa, cesión de derechos ni oferta de atención directa.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <a href="#problema">Problema</a>
-        <a href="#propuesta">Propuesta</a>
-        <a href="#gobernanza">Gobernanza</a>
-        <a href="#prototipo">Prototipo</a>
-        <a href="#contacto">Contacto</a>
-      </div>
+  <footer style="padding:46px 0 60px; border-top:1px solid var(--line);">
+    <div class="container" style="display:grid; gap:10px;">
+      <p style="color:var(--muted);">
+        <strong style="color:white;">SINAC-SM</strong> · Sistema de continuidad psicoemocional estructurada.
+      </p>
+      <p style="color:var(--muted);">
+        Material de carácter institucional, exploratorio y funcional inicial. No constituye atención clínica directa ni reemplazo de profesionales.
+      </p>
     </div>
   </footer>
+
+  <script>
+    const MVP_KEY = "sinac_mvp_registros";
+
+    function mvpGetRecords() {
+      return JSON.parse(localStorage.getItem(MVP_KEY)) || [];
+    }
+
+    function mvpSaveRecords(records) {
+      localStorage.setItem(MVP_KEY, JSON.stringify(records));
+    }
+
+    function mvpFormatDate(dateString) {
+      const d = new Date(dateString);
+      return d.toLocaleString("es-CL", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+
+    function mvpCountBy(records, field) {
+      return records.reduce((acc, item) => {
+        const value = item[field] || "Sin dato";
+        acc[value] = (acc[value] || 0) + 1;
+        return acc;
+      }, {});
+    }
+
+    function mvpTopValue(obj) {
+      const entries = Object.entries(obj);
+      if (!entries.length) return "Sin datos";
+      entries.sort((a, b) => b[1] - a[1]);
+      return entries[0][0];
+    }
+
+    function mvpTrend(records) {
+      if (records.length < 2) return "Aún no hay tendencia visible";
+
+      const recent = records.slice(-3).map(r => r.estado);
+      const stable = recent.filter(v => v === "Estable").length;
+      const overload = recent.filter(v => v === "Sobrecargado/a").length;
+
+      if (stable >= 2) return "Mayor estabilidad reciente";
+      if (overload >= 2) return "Mayor necesidad de seguimiento";
+      return "Tendencia mixta";
+    }
+
+    function mvpGuardarRegistro() {
+      const estado = document.getElementById("mvpEstado").value;
+      const energia = document.getElementById("mvpEnergia").value;
+      const nota = document.getElementById("mvpNota").value.trim();
+      const apoyo = document.getElementById("mvpApoyo").value;
+
+      if (!estado || !energia || !apoyo) {
+        alert("Completa los campos requeridos.");
+        return;
+      }
+
+      const records = mvpGetRecords();
+      records.push({
+        estado,
+        energia,
+        nota,
+        apoyo,
+        fecha: new Date().toISOString()
+      });
+
+      mvpSaveRecords(records);
+
+      document.getElementById("mvpEstado").value = "";
+      document.getElementById("mvpEnergia").value = "";
+      document.getElementById("mvpNota").value = "";
+      document.getElementById("mvpApoyo").value = "";
+
+      mvpRender();
+    }
+
+    function mvpCargarEjemplo() {
+      const demo = [
+        {
+          estado: "Con altibajos",
+          energia: "Media",
+          nota: "Semana con exigencia académica alta y necesidad de mayor organización.",
+          apoyo: "Mayor organización",
+          fecha: new Date(Date.now() - 1000 * 60 * 60 * 24 * 6).toISOString()
+        },
+        {
+          estado: "Sobrecargado/a",
+          energia: "Baja",
+          nota: "Se observa cansancio acumulado y dificultad para sostener rutina.",
+          apoyo: "Orientación para continuidad",
+          fecha: new Date(Date.now() - 1000 * 60 * 60 * 24 * 4).toISOString()
+        },
+        {
+          estado: "Con altibajos",
+          energia: "Media",
+          nota: "Se mantiene participación en seguimiento, aunque con variabilidad.",
+          apoyo: "Mantener seguimiento",
+          fecha: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2).toISOString()
+        },
+        {
+          estado: "Estable",
+          energia: "Media",
+          nota: "Mayor sensación de orden durante los últimos días.",
+          apoyo: "Mantener seguimiento",
+          fecha: new Date().toISOString()
+        }
+      ];
+
+      mvpSaveRecords(demo);
+      mvpRender();
+    }
+
+    function mvpLimpiar() {
+      localStorage.removeItem(MVP_KEY);
+      mvpRender();
+    }
+
+    function mvpRender() {
+      const records = mvpGetRecords();
+
+      const total = document.getElementById("mvpTotal");
+      const ultimoEstado = document.getElementById("mvpUltimoEstado");
+      const tendencia = document.getElementById("mvpTendencia");
+      const timeline = document.getElementById("mvpTimeline");
+
+      if (total) total.textContent = records.length;
+
+      if (ultimoEstado && tendencia) {
+        if (records.length) {
+          const last = records[records.length - 1];
+          ultimoEstado.textContent = last.estado;
+          tendencia.textContent = mvpTrend(records);
+        } else {
+          ultimoEstado.textContent = "Sin registros";
+          tendencia.textContent = "Sin información";
+        }
+      }
+
+      if (timeline) {
+        if (!records.length) {
+          timeline.innerHTML = `<div class="mvp-empty">Aún no hay registros. Puedes crear uno o cargar un ejemplo.</div>`;
+        } else {
+          timeline.innerHTML = [...records].reverse().map(r => `
+            <div class="mvp-item">
+              <div class="mvp-item-top">
+                <div class="mvp-item-title">${r.estado}</div>
+                <div class="mvp-item-date">${mvpFormatDate(r.fecha)}</div>
+              </div>
+              <div class="mvp-item-meta">
+                <span class="mvp-chip">Energía: ${r.energia}</span>
+                <span class="mvp-chip">Apoyo: ${r.apoyo}</span>
+              </div>
+              <div style="color:var(--muted);">${r.nota || "Sin comentario adicional."}</div>
+            </div>
+          `).join("");
+        }
+      }
+
+      const senal = document.getElementById("mvpSenal");
+      const energiaTop = document.getElementById("mvpEnergiaTop");
+      const apoyoTop = document.getElementById("mvpApoyoTop");
+      const resumen = document.getElementById("mvpResumen");
+      const bars = document.getElementById("mvpBars");
+      const tableBody = document.getElementById("mvpTableBody");
+
+      if (!senal || !energiaTop || !apoyoTop || !resumen || !bars || !tableBody) return;
+
+      if (!records.length) {
+        senal.textContent = "Sin datos";
+        energiaTop.textContent = "Sin datos";
+        apoyoTop.textContent = "Sin datos";
+        resumen.textContent = "No hay información suficiente para mostrar un resumen.";
+        bars.innerHTML = `<div class="mvp-empty">Aún no hay datos para visualizar.</div>`;
+        tableBody.innerHTML = `<tr><td colspan="5" class="mvp-table-empty">No hay registros aún.</td></tr>`;
+        return;
+      }
+
+      const estados = mvpCountBy(records, "estado");
+      const energias = mvpCountBy(records, "energia");
+      const apoyos = mvpCountBy(records, "apoyo");
+
+      senal.textContent = mvpTopValue(estados);
+      energiaTop.textContent = mvpTopValue(energias);
+      apoyoTop.textContent = mvpTopValue(apoyos);
+
+      const last = records[records.length - 1];
+      resumen.innerHTML = `
+        Se observan <strong>${records.length}</strong> registros acumulados de continuidad.
+        La señal predominante en este periodo es <strong>${mvpTopValue(estados)}</strong>,
+        con una energía predominante <strong>${mvpTopValue(energias)}</strong>.
+        El apoyo más referido corresponde a <strong>${mvpTopValue(apoyos)}</strong>.
+        El registro más reciente fue ingresado el <strong>${mvpFormatDate(last.fecha)}</strong>,
+        permitiendo una lectura más ordenada del seguimiento entre atenciones.
+      `;
+
+      const max = Math.max(...Object.values(estados));
+      bars.innerHTML = Object.entries(estados).map(([label, value]) => {
+        const percent = Math.round((value / max) * 100);
+        return `
+          <div class="mvp-bar-row">
+            <div class="mvp-bar-label">
+              <span>${label}</span>
+              <span>${value}</span>
+            </div>
+            <div class="mvp-bar-track">
+              <div class="mvp-bar-fill" style="width:${percent}%"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      tableBody.innerHTML = [...records].reverse().map(r => `
+        <tr>
+          <td>${mvpFormatDate(r.fecha)}</td>
+          <td>${r.estado}</td>
+          <td>${r.energia}</td>
+          <td>${r.apoyo}</td>
+          <td>${r.nota || "Sin comentario."}</td>
+        </tr>
+      `).join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll(".mvp-tab");
+      const panels = document.querySelectorAll(".mvp-panel");
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          const target = tab.dataset.panel;
+
+          tabs.forEach(t => t.classList.remove("active"));
+          panels.forEach(p => p.classList.remove("active"));
+
+          tab.classList.add("active");
+          document.getElementById(target).classList.add("active");
+        });
+      });
+
+      mvpRender();
+    });
+  </script>
 </body>
 </html>
