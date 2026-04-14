@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SINAC-SM | Demo funcional</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="app-body">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-box">
+        <div class="brand-logo">S</div>
+        <div>
+          <h1>SINAC-SM</h1>
+          <p>Modo demostración</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-btn active" data-view="usuario">Vista de usuario</button>
+        <button class="nav-btn" data-view="institucional">Vista institucional</button>
+      </nav>
+
+      <div class="sidebar-note">
+        <h3>Importante</h3>
+        <p>
+          Esta demo representa una lógica funcional mínima de continuidad psicoemocional estructurada.
+          No corresponde a atención clínica activa ni reemplaza evaluación profesional.
+        </p>
+      </div>
+
+      <a class="sidebar-link" href="index.html">← Volver al sitio</a>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar-app">
+        <div>
+          <p class="eyebrow-app">Demostración funcional</p>
+          <h2 id="viewTitle">Vista de usuario</h2>
+        </div>
+        <div class="topbar-actions">
+          <button class="secondary-btn" id="seedDemoBtn">Cargar ejemplo</button>
+          <button class="danger-btn" id="clearDataBtn">Limpiar datos</button>
+        </div>
+      </header>
+
+      <section id="usuarioView" class="view-section active">
+        <div class="hero-panel-app">
+          <div>
+            <p class="mini-label">Sistema complementario</p>
+            <h3>Registro estructurado entre atenciones</h3>
+            <p>
+              Esta demostración muestra cómo un usuario podría dejar registros breves entre contactos profesionales,
+              facilitando continuidad, trazabilidad y mejor lectura longitudinal.
+            </p>
+          </div>
+          <div class="hero-badges">
+            <span>Continuidad</span>
+            <span>Seguimiento</span>
+            <span>Visibilidad</span>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="metric-box">
+            <span class="metric-label">Registros acumulados</span>
+            <strong id="totalRegistros">0</strong>
+          </article>
+
+          <article class="metric-box">
+            <span class="metric-label">Último estado</span>
+            <strong id="ultimoEstado">Sin registros</strong>
+          </article>
+
+          <article class="metric-box">
+            <span class="metric-label">Tendencia reciente</span>
+            <strong id="tendenciaResumen">Sin información</strong>
+          </article>
+        </div>
+
+        <div class="content-grid">
+          <section class="card-app">
+            <div class="card-head">
+              <div>
+                <p class="mini-label">Check-in</p>
+                <h3>Nuevo registro</h3>
+              </div>
+            </div>
+
+            <form id="registroForm" class="form-grid">
+              <div class="form-group">
+                <label for="estado">¿Cómo te sentiste hoy?</label>
+                <select id="estado" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="Estable">Estable</option>
+                  <option value="Con altibajos">Con altibajos</option>
+                  <option value="Sobrecargado/a">Sobrecargado/a</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="energia">Nivel de energía</label>
+                <select id="energia" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="Alta">Alta</option>
+                  <option value="Media">Media</option>
+                  <option value="Baja">Baja</option>
+                </select>
+              </div>
+
+              <div class="form-group full">
+                <label for="nota">Comentario breve</label>
+                <textarea
+                  id="nota"
+                  rows="4"
+                  maxlength="220"
+                  placeholder="Escribe una observación breve sobre tu semana o tu día..."
+                ></textarea>
+              </div>
+
+              <div class="form-group full">
+                <label for="apoyo">¿Qué te ayudaría esta semana?</label>
+                <select id="apoyo" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="Mantener seguimiento">Mantener seguimiento</option>
+                  <option value="Mayor organización">Mayor organización</option>
+                  <option value="Orientación para continuidad">Orientación para continuidad</option>
+                </select>
+              </div>
+
+              <div class="form-actions full">
+                <button type="submit" class="primary-btn">Guardar registro</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card-app">
+            <div class="card-head">
+              <div>
+                <p class="mini-label">Historial</p>
+                <h3>Continuidad reciente</h3>
+              </div>
+            </div>
+
+            <div id="timeline" class="timeline-list">
+              <div class="empty-state">
+                Aún no hay registros. Puedes crear uno o cargar un ejemplo.
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="institucionalView" class="view-section">
+        <div class="hero-panel-app institutional">
+          <div>
+            <p class="mini-label">Lectura institucional</p>
+            <h3>Resumen estructurado para seguimiento</h3>
+            <p>
+              Esta vista muestra cómo podría organizarse la información de continuidad para apoyar seguimiento,
+              visibilizar patrones simples y facilitar conversaciones institucionales sin reemplazar juicio profesional.
+            </p>
+          </div>
+          <div class="hero-badges">
+            <span>No clínica</span>
+            <span>Longitudinal</span>
+            <span>Institucional</span>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="metric-box">
+            <span class="metric-label">Señal predominante</span>
+            <strong id="senalPredominante">Sin datos</strong>
+          </article>
+
+          <article class="metric-box">
+            <span class="metric-label">Energía predominante</span>
+            <strong id="energiaPredominante">Sin datos</strong>
+          </article>
+
+          <article class="metric-box">
+            <span class="metric-label">Apoyo más solicitado</span>
+            <strong id="apoyoPredominante">Sin datos</strong>
+          </article>
+        </div>
+
+        <div class="content-grid institutional-grid">
+          <section class="card-app">
+            <div class="card-head">
+              <div>
+                <p class="mini-label">Lectura breve</p>
+                <h3>Resumen del seguimiento</h3>
+              </div>
+            </div>
+
+            <div id="institutionSummary" class="summary-box">
+              No hay información suficiente para mostrar un resumen.
+            </div>
+
+            <div class="info-note">
+              Información estructurada para apoyo a seguimiento institucional.
+              No corresponde a evaluación ni decisión clínica automatizada.
+            </div>
+          </section>
+
+          <section class="card-app">
+            <div class="card-head">
+              <div>
+                <p class="mini-label">Tendencia</p>
+                <h3>Visualización simple</h3>
+              </div>
+            </div>
+
+            <div id="trendBars" class="bars-box">
+              <div class="empty-state">Aún no hay datos para visualizar.</div>
+            </div>
+          </section>
+        </div>
+
+        <section class="card-app">
+          <div class="card-head">
+            <div>
+              <p class="mini-label">Registros estructurados</p>
+              <h3>Tabla de continuidad</h3>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Estado</th>
+                  <th>Energía</th>
+                  <th>Apoyo</th>
+                  <th>Comentario</th>
+                </tr>
+              </thead>
+              <tbody id="institutionTableBody">
+                <tr>
+                  <td colspan="5" class="table-empty">No hay registros aún.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
