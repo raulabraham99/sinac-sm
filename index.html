@@ -1,109 +1,1027 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SINAC-SM</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SINAC-SM | Sistema de Continuidad Psicoemocional Estructurada</title>
+  <meta
+    name="description"
+    content="SINAC-SM es un sistema conceptual de continuidad psicoemocional estructurada, orientado a validación y co-diseño institucional."
+  />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f6f9;
-      color: #222;
+    :root{
+      --bg:#07111f;
+      --bg-2:#0c1830;
+      --surface:rgba(255,255,255,.06);
+      --surface-strong:rgba(255,255,255,.09);
+      --line:rgba(255,255,255,.12);
+      --text:#eef3ff;
+      --muted:#b4c0df;
+      --accent:#7f96ff;
+      --accent-2:#a07bff;
+      --ok:#9ce7c0;
+      --warn:#ffd58d;
+      --danger:#ffb2b2;
+      --shadow:0 22px 60px rgba(0,0,0,.28);
+      --radius:24px;
+      --max:1200px;
     }
 
-    header {
-      background: #0f3b63;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
+    html{
+      scroll-behavior:smooth;
     }
 
-    header p {
-      margin-top: 10px;
-      font-size: 18px;
-      opacity: 0.9;
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(127,150,255,.18), transparent 24%),
+        radial-gradient(circle at 100% 0%, rgba(160,123,255,.14), transparent 22%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      line-height:1.6;
     }
 
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
+    img{
+      display:block;
+      max-width:100%;
     }
 
-    h2 {
-      color: #0f3b63;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    .btn {
-      display: inline-block;
-      background: #0f3b63;
-      color: white;
-      padding: 12px 20px;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 15px;
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(16px);
+      background:rgba(7,17,31,.72);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+
+    .brand-mark{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#fff;
+      font-weight:900;
+      box-shadow:var(--shadow);
+    }
+
+    .brand small{
+      display:block;
+      color:var(--muted);
+      font-size:.78rem;
+      font-weight:600;
+      letter-spacing:0;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      font-weight:600;
+      transition:.2s ease;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+    }
+
+    .section{
+      padding:88px 0;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(156,231,192,.1);
+      border:1px solid rgba(156,231,192,.2);
+      color:var(--ok);
+      font-size:.92rem;
+      font-weight:700;
+    }
+
+    .hero{
+      padding:86px 0 56px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:32px;
+      align-items:center;
+    }
+
+    .hero h1{
+      margin:18px 0 18px;
+      font-size:clamp(2.8rem, 5vw, 5.2rem);
+      line-height:.95;
+      letter-spacing:-.055em;
+      max-width:800px;
+    }
+
+    .hero h1 span{
+      background:linear-gradient(135deg, #fff 0%, #c8d5ff 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      color:var(--muted);
+      max-width:700px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .btn{
+      min-height:54px;
+      padding:0 22px;
+      border-radius:16px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      font-weight:800;
+      border:1px solid transparent;
+      transition:.25s ease;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#fff;
+      box-shadow:0 16px 36px rgba(127,150,255,.28);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.05);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.05);
+      border-color:var(--line);
+      color:#fff;
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.08);
+    }
+
+    .hero-panel{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(127,150,255,.18), transparent 26%),
+        radial-gradient(circle at 88% 18%, rgba(160,123,255,.12), transparent 22%);
+      pointer-events:none;
+    }
+
+    .panel-card{
+      position:relative;
+      z-index:1;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      margin-bottom:14px;
+    }
+
+    .panel-card:last-child{
+      margin-bottom:0;
+    }
+
+    .panel-card h4{
+      font-size:1rem;
+      margin-bottom:8px;
+    }
+
+    .panel-card p{
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .tag{
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      font-size:.9rem;
+      font-weight:700;
+      color:#e8eeff;
+    }
+
+    .callout{
+      margin-top:26px;
+      background:linear-gradient(135deg, rgba(255,213,141,.12), rgba(255,255,255,.04));
+      border:1px solid rgba(255,213,141,.22);
+      border-radius:22px;
+      padding:20px;
+    }
+
+    .callout strong{
+      color:var(--warn);
+    }
+
+    .section-title{
+      font-size:clamp(2rem, 3vw, 3.2rem);
+      line-height:1.08;
+      letter-spacing:-.04em;
+      margin-bottom:14px;
+    }
+
+    .section-text{
+      color:var(--muted);
+      max-width:860px;
+      font-size:1.05rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:22px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+      height:100%;
+    }
+
+    .card h3{
+      margin:0 0 12px;
+      font-size:1.18rem;
+      letter-spacing:-.02em;
+    }
+
+    .card p{
+      color:var(--muted);
+    }
+
+    .icon{
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      margin-bottom:18px;
+      background:linear-gradient(135deg, rgba(127,150,255,.22), rgba(160,123,255,.18));
+      border:1px solid rgba(255,255,255,.12);
+      font-size:1.2rem;
+    }
+
+    .flow{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:18px;
+      margin-top:30px;
+    }
+
+    .step{
+      padding:24px;
+      border-radius:22px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .step-number{
+      width:40px;
+      height:40px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:white;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .step p{
+      color:var(--muted);
+    }
+
+    .list{
+      display:grid;
+      gap:14px;
+      margin-top:26px;
+    }
+
+    .list-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:15px 16px;
+      color:var(--muted);
+    }
+
+    .list-item span{
+      color:var(--ok);
+      font-weight:900;
+    }
+
+    .governance{
+      margin-top:34px;
+    }
+
+    .governance-box{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .governance-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .gov-card{
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px;
+    }
+
+    .gov-card h4{
+      margin-bottom:10px;
+      font-size:1rem;
+    }
+
+    .gov-card p{
+      color:var(--muted);
+    }
+
+    .comparison{
+      margin-top:30px;
+    }
+
+    .comparison-table{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .comparison-row{
+      display:grid;
+      grid-template-columns:1.1fr 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .comparison-head,
+    .comparison-cell{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid var(--line);
+    }
+
+    .comparison-head{
+      background:rgba(255,255,255,.09);
+      font-weight:800;
+    }
+
+    .comparison-cell{
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+    }
+
+    .gallery{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:24px;
+    }
+
+    .gallery-card{
+      overflow:hidden;
+      border-radius:26px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+    }
+
+    .gallery-card:hover{
+      transform:translateY(-4px);
+      background:rgba(255,255,255,.06);
+    }
+
+    .gallery-card img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      background:#0b162b;
+    }
+
+    .gallery-content{
+      padding:20px;
+    }
+
+    .gallery-content h4{
+      margin-bottom:8px;
+      font-size:1.08rem;
+    }
+
+    .gallery-content p{
+      color:var(--muted);
+      font-size:.98rem;
+    }
+
+    .concept-box{
+      margin-top:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .concept-head{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .concept-note{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:14px;
+      color:var(--warn);
+      background:rgba(255,213,141,.08);
+      border:1px solid rgba(255,213,141,.2);
+      font-weight:800;
+      font-size:.94rem;
+    }
+
+    .concept-box ul{
+      margin:16px 0 22px;
+      padding-left:20px;
+      color:var(--muted);
+    }
+
+    .concept-box p{
+      color:var(--muted);
+    }
+
+    .closing{
+      text-align:center;
+    }
+
+    .closing p{
+      max-width:860px;
+      margin:0 auto;
+    }
+
+    .footer{
+      padding:46px 0 58px;
+      margin-top:18px;
+      border-top:1px solid var(--line);
+    }
+
+    .footer p{
+      color:var(--muted);
+    }
+
+    .footer strong{
+      color:#fff;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .flow,
+      .gallery,
+      .comparison-row,
+      .governance-grid{
+        grid-template-columns:1fr;
+      }
+
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:14px 0;
+      }
+
+      .hero{
+        padding-top:60px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .section{
+        padding:66px 0;
+      }
+
+      .hero h1{
+        font-size:2.45rem;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .gallery-card img{
+        height:250px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h1>SINAC-SM</h1>
-  <p>El problema no es solo el acceso a salud mental. Es la continuidad.</p>
-</header>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <div class="brand-mark">S</div>
+        <div>
+          SINAC-SM
+          <small>Continuidad psicoemocional estructurada</small>
+        </div>
+      </a>
 
-<section>
-  <h2>El problema</h2>
-  <p>
-    La atención en salud mental presenta fragmentación, discontinuidad entre sesiones
-    y sobrecarga de los equipos clínicos, dificultando el seguimiento adecuado de los usuarios.
-  </p>
-</section>
+      <nav class="nav-links">
+        <a href="#que-es">Qué es</a>
+        <a href="#funcionamiento">Funcionamiento</a>
+        <a href="#no-es">Qué no es</a>
+        <a href="#gobernanza">Gobernanza</a>
+        <a href="#diferencial">Diferencial</a>
+        <a href="#prototipo">Prototipo</a>
+      </nav>
+    </div>
+  </header>
 
-<section>
-  <h2>Qué es SINAC-SM</h2>
-  <p>
-    SINAC-SM es un sistema de continuidad psicoemocional estructurada que busca complementar
-    el trabajo institucional, apoyando el seguimiento, registro y organización del proceso
-    entre sesiones.
-  </p>
-</section>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Modelo conceptual para validación y co-diseño institucional</div>
 
-<section>
-  <h2>Qué NO es</h2>
-  <p>
-    No es terapia, no realiza diagnósticos y no reemplaza a profesionales de salud mental.
-    Es una herramienta complementaria.
-  </p>
-</section>
+          <h1>
+            <span>Sistema de Continuidad Psicoemocional Estructurada</span>
+          </h1>
 
-<section>
-  <h2>Contacto</h2>
-  <p>
-    contacto@sinac-sm.cl
-  </p>
-  <a class="btn" href="mailto:contacto@sinac-sm.cl">Contactar</a>
-</section>
+          <p>
+            SINAC-SM se proyecta como una plataforma complementaria para el seguimiento
+            y apoyo entre atenciones profesionales, orientada a fortalecer continuidad,
+            visibilizar señales relevantes y apoyar procesos de derivación dentro de marcos institucionales.
+          </p>
 
-<footer>
-  <p>SINAC-SM · Desarrollo conceptual</p>
-</footer>
+          <div class="hero-actions">
+            <a href="#prototipo" class="btn btn-primary">Explorar funcionamiento del sistema</a>
+            <a href="#gobernanza" class="btn btn-secondary">Revisar enfoque institucional</a>
+          </div>
+
+          <div class="callout">
+            <p>
+              <strong>Importante:</strong> este sitio presenta un
+              <strong>prototipo conceptual</strong>. No corresponde a una implementación clínica activa,
+              ni a una plataforma operativa de atención directa.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="panel-card">
+            <h4>Propósito estratégico</h4>
+            <p>
+              Estructurar la continuidad psicoemocional entre atenciones,
+              sin reemplazar evaluación, criterio ni responsabilidad profesional.
+            </p>
+          </div>
+
+          <div class="panel-card">
+            <h4>Límite del sistema</h4>
+            <p>
+              No diagnostica, no trata, no interviene de forma clínica
+              y no sustituye dispositivos de urgencia.
+            </p>
+          </div>
+
+          <div class="panel-card">
+            <h4>Lógica de implementación futura</h4>
+            <p>
+              Su componente operativo debe ser definido, supervisado
+              y gobernado por la institución que lo adopte.
+            </p>
+          </div>
+
+          <div class="tag-row">
+            <div class="tag">Seguimiento estructurado</div>
+            <div class="tag">Continuidad longitudinal</div>
+            <div class="tag">Señales relevantes</div>
+            <div class="tag">Derivación institucional</div>
+            <div class="tag">Co-diseño</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUE ES -->
+    <section class="section" id="que-es">
+      <div class="container">
+        <h2 class="section-title">Qué es SINAC-SM</h2>
+        <p class="section-text">
+          SINAC-SM es un sistema conceptual orientado a fortalecer la continuidad psicoemocional
+          entre atenciones profesionales mediante registro estructurado, seguimiento longitudinal,
+          visibilización de señales relevantes y apoyo a rutas institucionales de derivación.
+        </p>
+
+        <div class="grid-2" style="margin-top:32px;">
+          <article class="card">
+            <div class="icon">📝</div>
+            <h3>Registro y acompañamiento estructurado</h3>
+            <p>
+              Organiza información relevante del usuario entre atenciones para sostener
+              mayor trazabilidad y contexto longitudinal.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📆</div>
+            <h3>Seguimiento entre atenciones</h3>
+            <p>
+              Favorece continuidad más allá del encuentro puntual,
+              disminuyendo fragmentación en el seguimiento.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">⚠️</div>
+            <h3>Identificación de señales de riesgo</h3>
+            <p>
+              Ayuda a visibilizar señales relevantes para que la institución
+              determine observación, reforzamiento o derivación según sus protocolos.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🏛️</div>
+            <h3>Apoyo a derivación institucional</h3>
+            <p>
+              Aporta estructura para continuidad y derivación dentro de marcos definidos
+              por responsables institucionales.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNCIONAMIENTO -->
+    <section class="section" id="funcionamiento">
+      <div class="container">
+        <h2 class="section-title">Funcionamiento conceptual del sistema</h2>
+        <p class="section-text">
+          El sistema propone una lógica simple: capturar información relevante entre atenciones,
+          estructurarla y dejar que la institución defina cómo interpretar, supervisar y responder
+          según sus propios criterios clínicos y operativos.
+        </p>
+
+        <div class="flow">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Registro</h3>
+            <p>
+              El usuario genera trazas breves de estado, seguimiento o eventos significativos.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Organización</h3>
+            <p>
+              La información se estructura para facilitar lectura longitudinal y contexto.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>Visibilización</h3>
+            <p>
+              El sistema ayuda a hacer visibles patrones o señales relevantes sin decidir clínicamente.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">4</div>
+            <h3>Derivación</h3>
+            <p>
+              La institución define criterios, responsables, protocolos y acciones correspondientes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NO ES -->
+    <section class="section" id="no-es">
+      <div class="container">
+        <h2 class="section-title">Lo que este sistema no es</h2>
+        <p class="section-text">
+          Esta delimitación es esencial para comprender el rol real del modelo y reducir confusión institucional.
+        </p>
+
+        <div class="list">
+          <div class="list-item"><span>✦</span><div>No realiza diagnóstico clínico.</div></div>
+          <div class="list-item"><span>✦</span><div>No entrega tratamiento psicológico o psiquiátrico.</div></div>
+          <div class="list-item"><span>✦</span><div>No reemplaza la atención profesional.</div></div>
+          <div class="list-item"><span>✦</span><div>No sustituye dispositivos de urgencia ni redes de emergencia.</div></div>
+          <div class="list-item"><span>✦</span><div>No corresponde a una implementación clínica activa en esta etapa.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOBERNANZA -->
+    <section class="section" id="gobernanza">
+      <div class="container">
+        <h2 class="section-title">Gobernanza institucional y responsabilidades</h2>
+        <p class="section-text">
+          El valor del modelo depende de una delimitación clara entre lo que hace el sistema
+          y lo que define, supervisa y ejecuta la institución.
+        </p>
+
+        <div class="governance">
+          <div class="governance-box">
+            <div class="governance-grid">
+              <article class="gov-card">
+                <h4>Lo que aporta el sistema</h4>
+                <p>
+                  Estructura de seguimiento, organización de información,
+                  continuidad longitudinal y apoyo para visibilizar señales relevantes.
+                </p>
+              </article>
+
+              <article class="gov-card">
+                <h4>Lo que define la institución</h4>
+                <p>
+                  Protocolos de uso, criterios de inclusión y exclusión,
+                  derivación, supervisión, responsables y manejo de incidentes.
+                </p>
+              </article>
+
+              <article class="gov-card">
+                <h4>Lo que no debe hacer el sistema</h4>
+                <p>
+                  Evaluar clínicamente por sí solo, reemplazar criterio profesional,
+                  tomar decisiones terapéuticas o asumir rol de urgencia.
+                </p>
+              </article>
+
+              <article class="gov-card">
+                <h4>Condición de implementación futura</h4>
+                <p>
+                  Toda operación real debe estar sostenida por gobernanza institucional,
+                  resguardos éticos y protocolos explícitos.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAL -->
+    <section class="section" id="diferencial">
+      <div class="container">
+        <h2 class="section-title">Diferencial estratégico del enfoque</h2>
+        <p class="section-text">
+          La propuesta no busca competir con atención clínica directa, sino resolver
+          un problema distinto: la continuidad estructurada entre atenciones.
+        </p>
+
+        <div class="comparison">
+          <div class="comparison-table">
+            <div class="comparison-row">
+              <div class="comparison-head">Dimensión</div>
+              <div class="comparison-head">Atención clínica directa</div>
+              <div class="comparison-head">SINAC-SM</div>
+            </div>
+
+            <div class="comparison-row">
+              <div class="comparison-cell">Rol principal</div>
+              <div class="comparison-cell">Evaluar, intervenir y tratar.</div>
+              <div class="comparison-cell">Estructurar continuidad y seguimiento entre atenciones.</div>
+            </div>
+
+            <div class="comparison-row">
+              <div class="comparison-cell">Responsabilidad clínica</div>
+              <div class="comparison-cell">Recae en profesionales tratantes.</div>
+              <div class="comparison-cell">Se mantiene en la institución y sus profesionales.</div>
+            </div>
+
+            <div class="comparison-row">
+              <div class="comparison-cell">Momento de uso</div>
+              <div class="comparison-cell">Durante atención o intervención clínica.</div>
+              <div class="comparison-cell">Entre atenciones, como soporte complementario estructurado.</div>
+            </div>
+
+            <div class="comparison-row">
+              <div class="comparison-cell">Valor principal</div>
+              <div class="comparison-cell">Tratamiento y abordaje clínico.</div>
+              <div class="comparison-cell">Continuidad longitudinal, visibilidad y apoyo a derivación.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROTOTIPO -->
+    <section class="section" id="prototipo">
+      <div class="container">
+        <h2 class="section-title">Vistas del prototipo conceptual</h2>
+        <p class="section-text">
+          Estas imágenes tienen un propósito ilustrativo y estratégico:
+          mostrar cómo podría verse una futura implementación del sistema, sin afirmar operación clínica activa.
+        </p>
+
+        <div class="gallery">
+          <article class="gallery-card">
+            <img src="img/portada.jpg" alt="Vista principal conceptual del sistema SINAC-SM" />
+            <div class="gallery-content">
+              <h4>Presentación general del sistema</h4>
+              <p>
+                Pantalla de entrada orientada a explicar propósito, alcance y límites del modelo.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/continuidad.jpg" alt="Módulo conceptual de continuidad entre atenciones" />
+            <div class="gallery-content">
+              <h4>Continuidad entre atenciones</h4>
+              <p>
+                Vista referencial del componente de seguimiento estructurado y trazabilidad longitudinal.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/resumen.jpg" alt="Vista conceptual de resumen y señales relevantes" />
+            <div class="gallery-content">
+              <h4>Resumen de seguimiento y señales relevantes</h4>
+              <p>
+                Ejemplo de cómo la información podría organizarse para facilitar lectura institucional.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="img/derivacion.jpg" alt="Vista conceptual de apoyo a continuidad y derivación institucional" />
+            <div class="gallery-content">
+              <h4>Apoyo a continuidad y derivación</h4>
+              <p>
+                Representación conceptual del componente orientado a rutas y decisiones institucionales.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARCO CONCEPTUAL -->
+    <section class="section" id="marco">
+      <div class="container">
+        <h2 class="section-title">Marco conceptual de validación</h2>
+        <p class="section-text">
+          Este bloque reemplaza cualquier lectura de consentimiento clínico real por una formulación
+          coherente con la etapa actual del proyecto.
+        </p>
+
+        <div class="concept-box">
+          <div class="concept-head">
+            <div class="eyebrow">Documento de referencia conceptual</div>
+            <div class="concept-note">
+              Documento conceptual de ejemplo para validación de modelo. No corresponde a implementación activa.
+            </div>
+          </div>
+
+          <p>
+            La presente interfaz y su contenido corresponden a una representación conceptual
+            de un sistema orientado a continuidad psicoemocional estructurada, desarrollado con fines de análisis,
+            revisión institucional y eventual co-diseño de implementación futura.
+          </p>
+
+          <ul>
+            <li>No constituye atención clínica activa.</li>
+            <li>No representa una herramienta de urgencia ni respuesta inmediata.</li>
+            <li>No sustituye evaluación, criterio ni seguimiento profesional.</li>
+            <li>Todo componente operativo real deberá ser definido por la institución correspondiente.</li>
+          </ul>
+
+          <a href="#prototipo" class="btn btn-primary">Revisar flujo conceptual</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="section closing">
+      <div class="container">
+        <h2 class="section-title">Continuidad estructurada, con límites claros y gobernanza institucional.</h2>
+        <p class="section-text">
+          SINAC-SM busca abrir una conversación seria sobre cómo fortalecer el acompañamiento entre atenciones
+          dentro de marcos responsables, delimitados y co-diseñables con cada institución.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>SINAC-SM</strong> · Prototipo conceptual para validación institucional.</p>
+      <p style="margin-top:8px;">
+        Material exploratorio y estratégico. Su contenido no constituye cesión de derechos,
+        implementación clínica activa ni oferta de atención directa.
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
